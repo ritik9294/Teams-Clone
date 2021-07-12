@@ -1,0 +1,240 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  button {
+    outline : none;
+    transition: .2s;
+    cursor: pointer;
+  }
+  
+  body {
+    --app-background: #0c0000;
+    --chat-background: rgb(0, 0, 0);
+    --link-color: #c0c1c5;
+    --navigation-bg: rgb(10, 10, 10);
+    --navigation-box-shadow: 0 2px 6px 0 rgba(136, 148, 171, 0.2), 0 24px 20px -24px rgba(71, 82, 107, 0.1);
+    --main-color: #df5e3d;
+    --message-bg: #f3f4f9;
+    --message-bg-2: #df633d;
+    --message-text: #2c303a;
+    --placeholder-text: #a2a4bc;
+    --button-bg: #fff;
+  }
+  
+  img {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: rgb(245, 243, 243);
+  }
+
+  .footer {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    height: 5%;
+    color: #f5f3f3;
+	background-color: #000000;
+	text-align: center;
+}
+
+  
+
+.chat-col{
+    right: 0;
+    bottom: 0;
+    top: 40.5px;
+    z-index: 1000;
+    position: fixed;
+    color: rgb(7, 7, 7);
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 40px;
+    padding-top: 15px;
+    min-height: 100vh;
+}
+
+.chat-typing-area {
+    display: flex;
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: var(--navigation-box-shadow);
+    background-color: var(--message-bg);
+    
+    
+      box-shadow: none;
+    
+  }
+  
+  .chat-input {
+    border: none;
+    font-size: 14px;
+    line-height: 24px;
+    outline: none;
+    color: var(--message-text);
+    flex: 1;
+    background-color: transparent;
+    
+  }
+  
+  .send-button {
+    color: #fff;
+    background-color: var(--main-color);
+    border-radius: 8px;
+    border: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+      width: 20px;
+      height: 20px;
+    
+  }
+
+#chat-messages{
+    height: 70vh;
+    margin-bottom: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+}
+
+#chat-messages::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;
+}
+
+
+
+.chat-box{
+    bottom: 30px;
+    right: 0;
+    position: absolute;
+    border: 0;
+    border-top: 1px groove white;
+    border-left: 1px groove white;
+    font-size: small;
+}
+
+.chat-box::placeholder{
+    font-size: small;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.chat-box,
+.chat-box:focus{
+    resize: none !important;
+    box-shadow: none !important;
+}
+
+.chat-row{
+    height: 100%;
+    overflow-x: scroll;
+}
+
+
+.remote-video{
+    position: relative;
+    object-fit: cover !important;
+    height: 300px;
+}
+
+.main{
+    padding-top: 40px;
+}
+
+.local-video{
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    height: 100px;
+    width: 200px;
+    z-index: 1000;
+}
+
+
+.sender-info{
+    font-size: smaller;
+    margin-top: 5px;
+    align-self: flex-end;
+}
+
+
+.msg{
+    font-weight: 400;
+    font-size: 12px;
+    color: black;
+    background-color: rgb(55, 2, 245);
+}
+
+
+.chat-card{
+    border-radius: 6px;
+}
+
+
+.btn-no-effect:focus{
+    box-shadow: none;
+}
+
+.very-small{
+    font-size: 6px !important;
+}
+
+
+@media only screen and (max-width:767px){
+    .chat-col{
+        right: -100vw;
+        width: 100vw;
+        z-index: 99999;
+        transition: 0.3s;
+        top: 47px;
+    }
+
+    .chat-col.chat-opened {
+        right: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        transition: all 0.3s ease !important;
+        -webkit-transition: all 0.3s ease !important;
+        -moz-transition: all 0.3s ease !important;
+    }
+  
+    .chat-opened::-webkit-scrollbar {
+        display: none;
+    }
+
+    .remote-video{
+        height: 200px;
+    }
+
+    .local-video{
+        height: 80px;
+        width: 100px;
+    }
+
+    #chat-messages{
+        height: 60vh;
+    }
+
+    .chat-box{
+        bottom: 90px;
+        margin-bottom: 0px;
+    }
+    
+}
